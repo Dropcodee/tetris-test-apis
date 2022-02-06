@@ -30,7 +30,7 @@ __decorate([
 ], Favorite.prototype, "id", void 0);
 __decorate([
     (0, typeorm_1.Column)(),
-    __metadata("design:type", String)
+    __metadata("design:type", Number)
 ], Favorite.prototype, "repo_id", void 0);
 __decorate([
     (0, typeorm_1.Column)(),
@@ -41,7 +41,7 @@ __decorate([
     __metadata("design:type", String)
 ], Favorite.prototype, "login", void 0);
 __decorate([
-    (0, typeorm_1.Column)(),
+    (0, typeorm_1.Column)({ nullable: true }),
     __metadata("design:type", String)
 ], Favorite.prototype, "avatar_url", void 0);
 __decorate([
@@ -57,7 +57,7 @@ __decorate([
     __metadata("design:type", String)
 ], Favorite.prototype, "description", void 0);
 __decorate([
-    (0, typeorm_1.Column)(),
+    (0, typeorm_1.Column)({ nullable: true }),
     __metadata("design:type", String)
 ], Favorite.prototype, "repo_url", void 0);
 __decorate([

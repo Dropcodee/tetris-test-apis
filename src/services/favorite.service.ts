@@ -1,6 +1,9 @@
-import {Favorite} from '../entity/Favorite'
+import { Favorite } from '../entity/Favorite';
+import { FavoriteInterface } from '../helpers/interfaces/dtos.interface';
 export class FavoriteService {
-    static AddNewFavorite = async (repoData: Favorite): Promise<Favorite> => {
+    static AddNewFavorite = async (
+        repoData: Favorite
+    ): Promise<FavoriteInterface> => {
         try {
             const newFavorite = await Favorite.create({
                 repo_id: repoData.repo_id,
@@ -11,19 +14,19 @@ export class FavoriteService {
                 favorite: true,
                 description: repoData.description,
                 repo_url: repoData.repo_url,
-            })
-            await newFavorite.save()
-            return newFavorite
+            });
+            await newFavorite.save();
+            return newFavorite;
         } catch (error) {
-            throw error
+            throw error;
         }
-    }
+    };
     static GetFavoriteRepos = async (): Promise<Favorite[]> => {
         try {
-            const repos = await Favorite.find()
-            return repos
+            const repos = await Favorite.find();
+            return repos;
         } catch (error) {
-            throw error
+            throw error;
         }
-    }
+    };
 }

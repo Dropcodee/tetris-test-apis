@@ -5,7 +5,7 @@ import cors from 'cors';
 import routes from './router';
 import logger from './config/logger';
 import { ConnectDB } from './config/database';
-
+import { ErrorMiddleware } from './middlewares/error.middleware';
 dotenv.config();
 const app = express();
 
@@ -16,10 +16,10 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
 app.listen(process.env.PORT || 3000, () => {
-  // router setup
-  routes(app);
-  // app.use(ErrorMiddleware);
-  // db connection
-  ConnectDB()
-  logger.info(`🚀🚀🚀 Server listing on port:${process.env.PORT} 🔥🔥🔥`);
+    // router setup
+    routes(app);
+    app.use(ErrorMiddleware);
+    // db connection
+    ConnectDB();
+    logger.info(`🚀🚀🚀 Server listing on port:${process.env.PORT} 🔥🔥🔥`);
 });
