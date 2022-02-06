@@ -18,7 +18,7 @@ app.use((0, cors_1.default)());
 app.use((0, helmet_1.default)());
 app.use(express_1.default.json());
 app.use(express_1.default.urlencoded({ extended: false }));
-app.listen(process.env.PORT || 3000, () => {
+app.listen(process.env.PORT || 8080, () => {
     // router setup
     (0, router_1.default)(app);
     app.use(error_middleware_1.ErrorMiddleware);

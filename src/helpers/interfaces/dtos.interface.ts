@@ -1,4 +1,5 @@
-import { Favorite } from './../../entity/Favorite';
+// this defines the shape of data responses
+
 export interface FavoriteInterface {
     id: number;
     repo_id: number;

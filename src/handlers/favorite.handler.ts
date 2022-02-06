@@ -1,11 +1,14 @@
 import {Request, Response, NextFunction} from 'express'
+import { REQUEST_CREATED_MSG } from '../helpers/constants/messages.constant'
 import { BadRequestException } from '../helpers/errors/BadRequestException'
 import {FavoriteService} from '../services/favorite.service'
 
+// create function for adding favorite repo to database
+// req body is passed to a service class to interact with db
 export async function AddFavoriteRepo(req: Request, res: Response) {
 try {
     const favoriteRepo = await FavoriteService.AddNewFavorite(req.body) 
-    res.status(201).json({message: 'favorite repository added successfully', favoriteRepo})
+    res.status(201).json({message: REQUEST_CREATED_MSG, ...favoriteRepo})
 } catch (error: any) {
     throw new Error(error.message)
 }

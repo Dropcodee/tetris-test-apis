@@ -5,6 +5,7 @@ const Favorite_1 = require("../entity/Favorite");
 class FavoriteService {
     static AddNewFavorite = async (repoData) => {
         try {
+            // create a new favorite repo 
             const newFavorite = await Favorite_1.Favorite.create({
                 repo_id: repoData.repo_id,
                 name: repoData.name,
@@ -15,6 +16,7 @@ class FavoriteService {
                 description: repoData.description,
                 repo_url: repoData.repo_url,
             });
+            // save to db
             await newFavorite.save();
             return newFavorite;
         }

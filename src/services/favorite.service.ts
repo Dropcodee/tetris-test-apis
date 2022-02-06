@@ -5,6 +5,7 @@ export class FavoriteService {
         repoData: Favorite
     ): Promise<FavoriteInterface> => {
         try {
+            // create a new favorite repo 
             const newFavorite = await Favorite.create({
                 repo_id: repoData.repo_id,
                 name: repoData.name,
@@ -15,6 +16,7 @@ export class FavoriteService {
                 description: repoData.description,
                 repo_url: repoData.repo_url,
             });
+            // save to db
             await newFavorite.save();
             return newFavorite;
         } catch (error) {

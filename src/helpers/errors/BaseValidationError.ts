@@ -7,6 +7,7 @@ export abstract class BaseValidationError extends Error {
     super(message);
     Object.setPrototypeOf(this, BaseValidationError.prototype);
   }
-
+// function that defines what the final look/shape of the validation error should be 
+// the error type is an interface that shows what every validation error will contain from zod, to the best of my knowledge tho.
   abstract SerializeErrors(): ValidationErrorType[];
 }
